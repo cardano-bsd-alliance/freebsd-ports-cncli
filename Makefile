@@ -2,7 +2,7 @@ PORTNAME=		cncli
 DISTVERSIONPREFIX=	v
 DISTVERSION=		5.0.3
 CATEGORIES=		net-p2p
-EXTRACT_ONLY+=		input-output-hk-libsodium-${LIBSODIUM_HASH}_GH0${EXTRACT_SUFX}
+#EXTRACT_ONLY+=		input-output-hk-libsodium-${LIBSODIUM_HASH}_GH0${EXTRACT_SUFX}
 
 MAINTAINER=		boris@zfs.ninja
 COMMENT=		A community-based cardano-node CLI tool
