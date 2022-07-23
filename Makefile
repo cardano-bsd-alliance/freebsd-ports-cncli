@@ -2,7 +2,6 @@ PORTNAME=		cncli
 DISTVERSIONPREFIX=	v
 DISTVERSION=		5.0.3
 CATEGORIES=		net-p2p
-#EXTRACT_ONLY+=		input-output-hk-libsodium-${LIBSODIUM_HASH}_GH0${EXTRACT_SUFX}
 
 MAINTAINER=		boris@zfs.ninja
 COMMENT=		A community-based cardano-node CLI tool
@@ -22,12 +21,12 @@ GH_TAGNAME=	${LIBSODIUM_HASH}:sodium
 LIBSODIUM_HASH=	66f017f16633f2060db25e17c170c2afa0f2a8a1
 LIBS_PREFIX=	${WRKDIR}/libs_install
 
-CARGO_ENV=	SODIUM_LIB_DIR=${LIBS_PREFIX}${PREFIX}/lib PKG_CONFIG_PATH=${LIBS_PREFIX}${PREFIX}/libdata/pkgconfig/
+CARGO_ENV=	SODIUM_LIB_DIR=${LIBS_PREFIX}${PREFIX}	OPENSSL_LIB_DIR=/usr/local/lib	OPENSSL_INCLUDE_DIR=/usr/local/include
 
-OPENSSLBASE=	/usr
-OPENSSLDIR=	/etc/ssl
-OPENSSLINC=	/usr/include
-OPENSSLLIB=	/usr/lib
+OPENSSLBASE=	/usr/local
+OPENSSLDIR=	/usr/local/etc/ssl
+OPENSSLINC=	/usr/local/include
+OPENSSLLIB=	/usr/local/lib
 
 CARGO_CRATES=   ahash-0.4.7 \
 		aho-corasick-0.7.18 \
