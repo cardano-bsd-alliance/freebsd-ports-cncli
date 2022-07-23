@@ -2,7 +2,7 @@ PORTNAME=		cncli
 DISTVERSIONPREFIX=	v
 DISTVERSION=		5.0.3
 CATEGORIES=		net-p2p
-EXTRACT_ONLY+=	input-output-hk-libsodium-${LIBSODIUM_HASH}_GH0${EXTRACT_SUFX}
+EXTRACT_ONLY+=		input-output-hk-libsodium-${LIBSODIUM_HASH}_GH0${EXTRACT_SUFX}
 
 MAINTAINER=		boris@zfs.ninja
 COMMENT=		A community-based cardano-node CLI tool
@@ -10,7 +10,7 @@ COMMENT=		A community-based cardano-node CLI tool
 LICENSE=		APACHE20
 LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE
 
-USES=	autoreconf:build cargo gmake libtool pkgconfig
+USES=		autoreconf:build cargo gmake libtool pkgconfig
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	cardano-community input-output-hk:sodium
