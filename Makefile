@@ -9,7 +9,7 @@ COMMENT=		A community-based cardano-node CLI tool
 LICENSE=		APACHE20
 LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE
 
-USES=		autoreconf:build cargo gmake libtool pkgconfig
+USES=		autoreconf:build cargo gmake libtool pkgconfig ssl
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	cardano-community input-output-hk:sodium
@@ -22,12 +22,7 @@ LIBSODIUM_HASH=	66f017f16633f2060db25e17c170c2afa0f2a8a1
 LIBS_PREFIX=	${WRKDIR}/libs_install
 
 CARGO_ENV=	SODIUM_LIB_DIR=${LIBS_PREFIX}${PREFIX}/lib SODIUM_INCLUDE_DIR=${LIBS_PREFIX}${PREFIX}/include \
-		OPENSSL_LIB_DIR=/usr/local/lib	OPENSSL_INCLUDE_DIR=/usr/local/include
-
-OPENSSLBASE=	/usr/local
-OPENSSLDIR=	/usr/local/etc/ssl
-OPENSSLINC=	/usr/local/include
-OPENSSLLIB=	/usr/local/lib
+		OPENSSL_LIB_DIR=${OPENSSLLIB} OPENSSL_INCLUDE_DIR=${OPENSSLINC}
 
 CARGO_CRATES=   ahash-0.4.7 \
 		aho-corasick-0.7.18 \
@@ -45,7 +40,7 @@ CARGO_CRATES=   ahash-0.4.7 \
 		atty-0.2.14 \
 		autocfg-1.1.0 \
 		autotools-0.2.5 \
-		az-1.2.0 \
+		az-1.2.1 \
 		base58-0.2.0 \
 		base64-0.13.0 \
 		bech32-0.8.1 \
@@ -64,24 +59,24 @@ CARGO_CRATES=   ahash-0.4.7 \
 		chrono-0.4.19 \
 		chrono-tz-0.5.3 \
 		clap-2.34.0 \
-		concurrent-queue-1.2.2 \
+		concurrent-queue-1.2.4 \
 		constant_time_eq-0.1.5 \
 		core-foundation-0.9.3 \
 		core-foundation-sys-0.8.3 \
-		crossbeam-channel-0.5.5 \
-		crossbeam-deque-0.8.1 \
-		crossbeam-epoch-0.9.9 \
-		crossbeam-utils-0.8.10 \
+		crossbeam-channel-0.5.6 \
+		crossbeam-deque-0.8.2 \
+		crossbeam-epoch-0.9.10 \
+		crossbeam-utils-0.8.11 \
 		cryptoxide-0.4.2 \
 		ctor-0.1.22 \
 		either-1.7.0 \
 		encoding_rs-0.8.31 \
 		env_logger-0.7.1 \
 		env_logger-0.8.4 \
-		event-listener-2.5.2 \
+		event-listener-2.5.3 \
 		fallible-iterator-0.2.0 \
 		fallible-streaming-iterator-0.1.9 \
-		fastrand-1.7.0 \
+		fastrand-1.8.0 \
 		fnv-1.0.7 \
 		foreign-types-0.3.2 \
 		foreign-types-shared-0.1.1 \
@@ -98,7 +93,7 @@ CARGO_CRATES=   ahash-0.4.7 \
 		futures-util-0.3.21 \
 		getrandom-0.2.7 \
 		gloo-timers-0.2.4 \
-		gmp-mpfr-sys-1.4.8 \
+		gmp-mpfr-sys-1.4.9 \
 		h2-0.3.13 \
 		half-1.8.2 \
 		hashbrown-0.9.1 \
@@ -121,7 +116,7 @@ CARGO_CRATES=   ahash-0.4.7 \
 		ipnet-2.5.0 \
 		itertools-0.10.3 \
 		itoa-1.0.2 \
-		js-sys-0.3.58 \
+		js-sys-0.3.59 \
 		kv-log-macro-1.0.7 \
 		lazy_static-1.4.0 \
 		libc-0.2.126 \
@@ -163,7 +158,7 @@ CARGO_CRATES=   ahash-0.4.7 \
 		pretty_env_logger-0.4.0 \
 		proc-macro-error-1.0.4 \
 		proc-macro-error-attr-1.0.4 \
-		proc-macro2-1.0.40 \
+		proc-macro2-1.0.42 \
 		quick-error-1.2.3 \
 		quote-1.0.20 \
 		rand-0.8.5 \
@@ -171,7 +166,7 @@ CARGO_CRATES=   ahash-0.4.7 \
 		rand_core-0.6.3 \
 		rayon-1.5.3 \
 		rayon-core-1.9.3 \
-		redox_syscall-0.2.13 \
+		redox_syscall-0.2.16 \
 		regex-1.6.0 \
 		regex-syntax-0.6.27 \
 		remove_dir_all-0.5.3 \
@@ -183,10 +178,10 @@ CARGO_CRATES=   ahash-0.4.7 \
 		scopeguard-1.1.0 \
 		security-framework-2.6.1 \
 		security-framework-sys-2.6.1 \
-		serde-1.0.139 \
+		serde-1.0.140 \
 		serde-aux-2.3.0 \
 		serde_cbor-0.11.2 \
-		serde_derive-1.0.139 \
+		serde_derive-1.0.140 \
 		serde_json-1.0.82 \
 		serde_urlencoded-0.7.1 \
 		slab-0.4.7 \
@@ -204,7 +199,7 @@ CARGO_CRATES=   ahash-0.4.7 \
 		time-0.1.44 \
 		tinyvec-1.6.0 \
 		tinyvec_macros-0.1.0 \
-		tokio-1.20.0 \
+		tokio-1.20.1 \
 		tokio-native-tls-0.3.0 \
 		tokio-util-0.7.3 \
 		tower-service-0.3.2 \
@@ -225,13 +220,13 @@ CARGO_CRATES=   ahash-0.4.7 \
 		want-0.3.0 \
 		wasi-0.10.0+wasi-snapshot-preview1 \
 		wasi-0.11.0+wasi-snapshot-preview1 \
-		wasm-bindgen-0.2.81 \
-		wasm-bindgen-backend-0.2.81 \
-		wasm-bindgen-futures-0.4.31 \
-		wasm-bindgen-macro-0.2.81 \
-		wasm-bindgen-macro-support-0.2.81 \
-		wasm-bindgen-shared-0.2.81 \
-		web-sys-0.3.58 \
+		wasm-bindgen-0.2.82 \
+		wasm-bindgen-backend-0.2.82 \
+		wasm-bindgen-futures-0.4.32 \
+		wasm-bindgen-macro-0.2.82 \
+		wasm-bindgen-macro-support-0.2.82 \
+		wasm-bindgen-shared-0.2.82 \
+		web-sys-0.3.59 \
 		wepoll-ffi-0.1.2 \
 		winapi-0.3.9 \
 		winapi-i686-pc-windows-gnu-0.4.0 \
@@ -244,7 +239,6 @@ CARGO_CRATES=   ahash-0.4.7 \
 		windows_x86_64_gnu-0.36.1 \
 		windows_x86_64_msvc-0.36.1 \
 		winreg-0.10.1
-
 
 PLIST_FILES=	bin/cncli
 
