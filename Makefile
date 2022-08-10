@@ -1,6 +1,6 @@
 PORTNAME=		cncli
 DISTVERSIONPREFIX=	v
-DISTVERSION=		5.0.6
+DISTVERSION=		5.1.0
 CATEGORIES=		net-p2p
 
 MAINTAINER=		boris@zfs.ninja
@@ -24,11 +24,11 @@ LIBS_PREFIX=	${WRKDIR}/libs_install
 CARGO_ENV=	SODIUM_LIB_DIR=${LIBS_PREFIX}${PREFIX}/lib SODIUM_INCLUDE_DIR=${LIBS_PREFIX}${PREFIX}/include \
 		OPENSSL_LIB_DIR=${OPENSSLLIB} OPENSSL_INCLUDE_DIR=${OPENSSLINC}
 
-CARGO_CRATES=   ahash-0.4.7 \
+CARGO_CRATES=	ahash-0.7.6 \
 		aho-corasick-0.7.18 \
 		ansi_term-0.12.1 \
 		arrayref-0.3.6 \
-		arrayvec-0.5.2 \
+		arrayvec-0.7.2 \
 		async-channel-1.6.1 \
 		async-executor-1.4.1 \
 		async-global-executor-2.2.0 \
@@ -45,19 +45,20 @@ CARGO_CRATES=   ahash-0.4.7 \
 		base64-0.13.0 \
 		bech32-0.8.1 \
 		bech32-0.9.0 \
-		bigdecimal-0.2.2 \
+		bigdecimal-0.3.0 \
 		bitflags-1.3.2 \
-		blake2b_simd-0.5.11 \
+		blake2b_simd-1.0.0 \
 		blocking-1.2.0 \
 		bumpalo-3.10.0 \
 		byteorder-1.4.3 \
-		bytes-1.2.0 \
+		bytes-1.2.1 \
 		cache-padded-1.2.0 \
 		cc-1.0.73 \
 		cfg-if-0.1.10 \
 		cfg-if-1.0.0 \
-		chrono-0.4.19 \
-		chrono-tz-0.5.3 \
+		chrono-0.4.20 \
+		chrono-tz-0.6.3 \
+		chrono-tz-build-0.0.3 \
 		clap-2.34.0 \
 		concurrent-queue-1.2.4 \
 		constant_time_eq-0.1.5 \
@@ -68,11 +69,11 @@ CARGO_CRATES=   ahash-0.4.7 \
 		crossbeam-epoch-0.9.10 \
 		crossbeam-utils-0.8.11 \
 		cryptoxide-0.4.2 \
-		ctor-0.1.22 \
+		ctor-0.1.23 \
 		either-1.7.0 \
 		encoding_rs-0.8.31 \
 		env_logger-0.7.1 \
-		env_logger-0.8.4 \
+		env_logger-0.9.0 \
 		event-listener-2.5.3 \
 		fallible-iterator-0.2.0 \
 		fallible-streaming-iterator-0.1.9 \
@@ -93,12 +94,11 @@ CARGO_CRATES=   ahash-0.4.7 \
 		futures-util-0.3.21 \
 		getrandom-0.2.7 \
 		gloo-timers-0.2.4 \
-		gmp-mpfr-sys-1.4.9 \
+		gmp-mpfr-sys-1.4.10 \
 		h2-0.3.13 \
 		half-1.8.2 \
-		hashbrown-0.9.1 \
 		hashbrown-0.12.3 \
-		hashlink-0.6.0 \
+		hashlink-0.8.0 \
 		heck-0.3.3 \
 		hermit-abi-0.1.19 \
 		hex-0.4.3 \
@@ -115,12 +115,12 @@ CARGO_CRATES=   ahash-0.4.7 \
 		instant-0.1.12 \
 		ipnet-2.5.0 \
 		itertools-0.10.3 \
-		itoa-1.0.2 \
+		itoa-1.0.3 \
 		js-sys-0.3.59 \
 		kv-log-macro-1.0.7 \
 		lazy_static-1.4.0 \
-		libc-0.2.126 \
-		libsqlite3-sys-0.20.1 \
+		libc-0.2.127 \
+		libsqlite3-sys-0.25.1 \
 		log-0.4.17 \
 		matches-0.1.9 \
 		memchr-2.5.0 \
@@ -131,7 +131,7 @@ CARGO_CRATES=   ahash-0.4.7 \
 		mio-0.8.4 \
 		native-tls-0.2.10 \
 		net2-0.2.37 \
-		num-bigint-0.3.3 \
+		num-bigint-0.4.3 \
 		num-integer-0.1.45 \
 		num-traits-0.2.15 \
 		num_cpus-1.13.1 \
@@ -140,16 +140,20 @@ CARGO_CRATES=   ahash-0.4.7 \
 		openssl-macros-0.1.0 \
 		openssl-probe-0.1.5 \
 		openssl-sys-0.9.75 \
-		pallas-addresses-0.12.0-alpha.0 \
-		pallas-codec-0.12.0-alpha.0 \
-		pallas-crypto-0.12.0-alpha.0 \
-		pallas-miniprotocols-0.12.0-alpha.0 \
-		pallas-multiplexer-0.12.0-alpha.0 \
-		pallas-primitives-0.12.0-alpha.0 \
-		pallas-traverse-0.12.0-alpha.0 \
+		pallas-addresses-0.13.0 \
+		pallas-codec-0.13.0 \
+		pallas-crypto-0.13.0 \
+		pallas-miniprotocols-0.13.0 \
+		pallas-multiplexer-0.13.0 \
+		pallas-primitives-0.13.0 \
+		pallas-traverse-0.13.0 \
 		parking-2.0.0 \
 		parse-zoneinfo-0.3.0 \
 		percent-encoding-2.1.0 \
+		phf-0.11.0 \
+		phf_codegen-0.11.0 \
+		phf_generator-0.11.0 \
+		phf_shared-0.11.0 \
 		pin-project-lite-0.2.9 \
 		pin-utils-0.1.0 \
 		pkg-config-0.3.25 \
@@ -158,9 +162,9 @@ CARGO_CRATES=   ahash-0.4.7 \
 		pretty_env_logger-0.4.0 \
 		proc-macro-error-1.0.4 \
 		proc-macro-error-attr-1.0.4 \
-		proc-macro2-1.0.42 \
+		proc-macro2-1.0.43 \
 		quick-error-1.2.3 \
-		quote-1.0.20 \
+		quote-1.0.21 \
 		rand-0.8.5 \
 		rand_chacha-0.3.1 \
 		rand_core-0.6.3 \
@@ -171,31 +175,32 @@ CARGO_CRATES=   ahash-0.4.7 \
 		regex-syntax-0.6.27 \
 		remove_dir_all-0.5.3 \
 		reqwest-0.11.11 \
-		rug-1.16.0 \
-		rusqlite-0.24.2 \
-		ryu-1.0.10 \
+		rug-1.17.0 \
+		rusqlite-0.28.0 \
+		ryu-1.0.11 \
 		schannel-0.1.20 \
 		scopeguard-1.1.0 \
 		security-framework-2.6.1 \
 		security-framework-sys-2.6.1 \
-		serde-1.0.140 \
-		serde-aux-2.3.0 \
+		serde-1.0.142 \
+		serde-aux-3.1.0 \
 		serde_cbor-0.11.2 \
-		serde_derive-1.0.140 \
-		serde_json-1.0.82 \
+		serde_derive-1.0.142 \
+		serde_json-1.0.83 \
 		serde_urlencoded-0.7.1 \
+		siphasher-0.3.10 \
 		slab-0.4.7 \
 		smallvec-1.9.0 \
 		socket2-0.4.4 \
 		strsim-0.8.0 \
 		structopt-0.3.26 \
 		structopt-derive-0.4.18 \
-		syn-1.0.98 \
+		syn-1.0.99 \
 		tempfile-3.3.0 \
 		termcolor-1.1.3 \
 		textwrap-0.11.0 \
-		thiserror-1.0.31 \
-		thiserror-impl-1.0.31 \
+		thiserror-1.0.32 \
+		thiserror-impl-1.0.32 \
 		time-0.1.44 \
 		tinyvec-1.6.0 \
 		tinyvec_macros-0.1.0 \
@@ -203,11 +208,12 @@ CARGO_CRATES=   ahash-0.4.7 \
 		tokio-native-tls-0.3.0 \
 		tokio-util-0.7.3 \
 		tower-service-0.3.2 \
-		tracing-0.1.35 \
-		tracing-core-0.1.28 \
+		tracing-0.1.36 \
+		tracing-core-0.1.29 \
 		try-lock-0.2.3 \
+		uncased-0.9.7 \
 		unicode-bidi-0.3.8 \
-		unicode-ident-1.0.2 \
+		unicode-ident-1.0.3 \
 		unicode-normalization-0.1.21 \
 		unicode-segmentation-1.9.0 \
 		unicode-width-0.1.9 \
